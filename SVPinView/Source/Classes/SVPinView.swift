@@ -101,12 +101,12 @@ public class SVPinView: UIView {
     }
     
     private func loadView(completionHandler: (()->())? = nil) {
-        let podBundle = Bundle(for: SVPinView.self)
-        let nib = UINib(nibName: "SVPinView", bundle: podBundle)
+        let bundle = Bundle.module
+        let nib = UINib(nibName: "SVPinView", bundle: bundle)
         view = nib.instantiate(withOwner: self, options: nil)[0] as? UIView
         
         // for CollectionView
-        let collectionViewNib = UINib(nibName: "SVPinCell", bundle: podBundle)
+        let collectionViewNib = UINib(nibName: "SVPinCell", bundle: bundle)
         collectionView.register(collectionViewNib, forCellWithReuseIdentifier: reuseIdentifier)
         flowLayout.scrollDirection = .vertical
         collectionView.isScrollEnabled = false
